@@ -6,7 +6,8 @@ class HotlinePage extends StatelessWidget {
     {"title": "জরুরী সেবা", "number": "999"},
     {"title": "তথ্য সেবা", "number": "333"},
     {"title": "শিশু সহায়তা", "number": "1098"},
-    {"title": "নারী ও শিশু নির্যাতন", "number": "109/10921"},
+    {"title": "নারী ও শিশু নির্যাতন 1", "number": "109"},
+    {"title": "নারী ও শিশু নির্যাতন 2", "number": "10921"},
     {"title": "সরকারী আইন সেবা", "number": "16430"},
     {"title": "ফায়ার সার্ভিস 1", "number": "102"},
     {"title": "ফায়ার সার্ভিস 2", "number": "16163"},
@@ -33,19 +34,37 @@ class HotlinePage extends StatelessWidget {
         title: Text('Hotline'),
       ),
       body: ListView.builder(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(16.0),
         itemCount: hotlines.length,
         itemBuilder: (context, index) {
           final hotline = hotlines[index];
-          return Card(
-            margin: EdgeInsets.symmetric(vertical: 8.0),
+          return Container(
+            margin: EdgeInsets.only(bottom: 16.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  blurRadius: 8,
+                  offset: Offset(0, 4), // Shadow position
+                ),
+              ],
+            ),
             child: ListTile(
+              contentPadding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
               title: Text(
                 hotline['title']!,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              subtitle: Text(hotline['number']!),
-              leading: Icon(Icons.phone, color: Colors.blue),
+              subtitle: Text(
+                hotline['number']!,
+                style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+              ),
+              leading: CircleAvatar(
+                backgroundColor: Colors.blue,
+                child: Icon(Icons.phone, color: Colors.white),
+              ),
               trailing: ElevatedButton(
                 onPressed: () {
                   // Handle case where number might contain non-numeric characters
@@ -58,7 +77,16 @@ class HotlinePage extends StatelessWidget {
                     ));
                   }
                 },
-                child: Text('Call'),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  backgroundColor: Colors.green,
+                ),
+                child: Text(
+                  'Call',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           );

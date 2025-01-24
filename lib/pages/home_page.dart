@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shuborno/pages/emporia.dart';
 import 'package:shuborno/pages/game.dart';
 import 'package:shuborno/pages/hotline.dart';
 // import '../sign_in_page.dart';
@@ -70,6 +71,16 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => GamesPage()),
+                );
+              },
+            ),
+            FeatureButton(
+              text: 'Emporia',
+              icon: Icons.translate,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Emporia()),
                 );
               },
             ),
