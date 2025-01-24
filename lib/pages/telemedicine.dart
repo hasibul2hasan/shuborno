@@ -3,9 +3,23 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Telemedicine extends StatelessWidget {
   final List<Map<String, String>> doctors = [
-    {"name": "Dr. John Doe", "phone": "1234567890", "email": "john@example.com", "address": "123 Health St, City A", "image": "assets/doctors/demo.jpg"},
-    {"name": "Dr. Jane Smith", "phone": "9876543210", "email": "jane@example.com", "address": "456 Wellness Ave, City B", "image": "assets/jane_smith.jpg"},
-    // Add more doctors here...
+    {
+      "name": "Sojib Ahmed",
+      "phone": "+880179832324",
+      "email": "john@example.com",
+      "address": "shahbag, Dhaka",
+      "image": "assets/doctors/demo.jpg",
+      "specialty": "DMC, (Eye specialist)",
+    },
+    {
+      "name": "Dr. Jane Smith",
+      "phone": "9876543210",
+      "email": "jane@example.com",
+      "address": "456 Wellness Ave, City B",
+      "image": "assets/jane_smith.jpg",
+      "specialty": "Dermatologist",
+    },
+    // Add more doctors 
   ];
 
   // Function to make a call
@@ -29,7 +43,7 @@ class Telemedicine extends StatelessWidget {
   }
 
   // Function to show contact options dialog
-  void _showContactOptions(BuildContext context, String name, String phone, String email, String address, String image) {
+  void _showContactOptions(BuildContext context, String name, String phone, String email, String address, String image, String specialty) {
     showDialog(
       context: context,
       builder: (context) {
@@ -41,6 +55,11 @@ class Telemedicine extends StatelessWidget {
               CircleAvatar(
                 radius: 40,
                 backgroundImage: AssetImage(image), // Display the doctor's image
+              ),
+              SizedBox(height: 16),
+              Text(
+                specialty,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               SizedBox(height: 16),
               ListTile(
@@ -113,6 +132,15 @@ class Telemedicine extends StatelessWidget {
                 children: [
                   SizedBox(height: 4),
                   Text(
+                    doctor['specialty']!,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
                     doctor['address']!,
                     style: TextStyle(
                       fontSize: 14,
@@ -155,6 +183,7 @@ class Telemedicine extends StatelessWidget {
                   doctor['email']!,
                   doctor['address']!,
                   doctor['image']!, // Pass image to the dialog
+                  doctor['specialty']!, // Pass specialty to the dialog
                 );
               },
             ),
