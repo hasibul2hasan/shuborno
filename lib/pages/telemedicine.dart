@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Telemedicine extends StatelessWidget {
   final List<Map<String, String>> doctors = [
-    {"name": "Dr. John Doe", "phone": "1234567890", "email": "john@example.com", "address": "123 Health St, City A", "image": "assets/john_doe.jpg"},
+    {"name": "Dr. John Doe", "phone": "1234567890", "email": "john@example.com", "address": "123 Health St, City A", "image": "assets/doctors/demo.jpg"},
     {"name": "Dr. Jane Smith", "phone": "9876543210", "email": "jane@example.com", "address": "456 Wellness Ave, City B", "image": "assets/jane_smith.jpg"},
     // Add more doctors here...
   ];
