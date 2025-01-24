@@ -5,12 +5,24 @@ allprojects {
     }
 }
 
+// Define the Kotlin plugin version
+ext.kotlin_version = '1.9.0' // Replace with the latest stable version if needed
+
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 subprojects {
     project.evaluationDependsOn(":app")
+}
+
+// Remove the afterEvaluate block
+subprojects {
+    plugins.withId("kotlin-android") {
+        dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        }
+    }
 }
 
 tasks.register("clean", Delete) {
