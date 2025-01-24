@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shuborno/pages/emporia.dart';
 import 'package:shuborno/pages/game.dart';
 import 'package:shuborno/pages/hotline.dart';
+import 'package:shuborno/pages/telemedicine.dart';
 // import '../sign_in_page.dart';
 // import '../telemedicine_page.dart';
 // import '../jobs_page.dart';
@@ -48,10 +49,10 @@ class HomePage extends StatelessWidget {
               text: 'Telemedicine',
               icon: Icons.local_hospital,
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => TelemedicinePage()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Telemedicine()),
+                );
               },
             ),
             FeatureButton(
