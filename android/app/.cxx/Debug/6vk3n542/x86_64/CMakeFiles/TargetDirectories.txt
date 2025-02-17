@@ -1,0 +1,2 @@
+/Users/hasibulhasan/Projects/shuborno/android/app/.cxx/Debug/6vk3n542/x86_64/CMakeFiles/edit_cache.dir
+/Users/hasibulhasan/Projects/shuborno/android/app/.cxx/Debug/6vk3n542/x86_64/CMakeFiles/rebuild_cache.dir
